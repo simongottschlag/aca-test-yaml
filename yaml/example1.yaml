@@ -3,6 +3,9 @@ apiVersion: aca.xenit.io/v1alpha1
 metadata:
   name: foo1
 spec:
+  remoteSecrets:
+    - appSecretName: connection-string
+      remoteSecretName: mssql-connection-string
   app:
     properties:
       configuration:
@@ -14,6 +17,11 @@ spec:
           resources:
             cpu: 0.25
             memory: .5Gi
+          env:
+            - name: CONNECTION_STRING
+              secretRef: connection-string
+            - name: MEANING_WITH_LIFE
+              value: "forty two"
         scale:
           minReplicas: 1
           maxReplicas: 1
