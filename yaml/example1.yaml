@@ -1,7 +1,7 @@
 kind: AzureContainerApp
 apiVersion: aca.xenit.io/v1alpha1
 metadata:
-  name: foobar3
+  name: foobar4
 spec:
   remoteSecrets:
     - appSecretName: connection-string
