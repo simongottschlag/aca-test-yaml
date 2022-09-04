@@ -1,0 +1,35 @@
+kind: AzureContainerApp
+apiVersion: aca.xenit.io/v1alpha1
+metadata:
+  name: podinfo
+spec:
+  app:
+    properties:
+      configuration:
+        ingress:
+          allowInsecure: true
+          external: true
+          targetPort: 9898
+      template:
+        containers:
+        - name: podinfo
+          image: ghcr.io/stefanprodan/podinfo:6.1.8
+          resources:
+            cpu: 0.25
+            memory: .5Gi
+          command:
+            - ./podinfo
+            - --port=9898
+          env:
+            - name: PODINFO_UI_MESSAGE
+              value: "Welcome to azcagit!"
+            - name: PODINFO_UI_COLOR
+              value: blue
+          probes:
+              httpGet:
+                path: /healthz
+                port: 9898
+                scheme: http
+        scale:
+          minReplicas: 1
+          maxReplicas: 1
