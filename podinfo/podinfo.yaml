@@ -26,10 +26,11 @@ spec:
             - name: PODINFO_UI_COLOR
               value: blue
           probes:
-              httpGet:
+            - httpGet:
                 path: /healthz
                 port: 9898
                 scheme: http
+              type: Liveness
         scale:
           minReplicas: 1
           maxReplicas: 1
