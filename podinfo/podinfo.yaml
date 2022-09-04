@@ -13,7 +13,7 @@ spec:
       template:
         containers:
         - name: podinfo
-          image: ghcr.io/stefanprodan/podinfo:6.2.0
+          image: ghcr.io/stefanprodan/podinfo:6.1.8
           resources:
             cpu: 0.25
             memory: .5Gi
@@ -24,7 +24,7 @@ spec:
             - name: PODINFO_UI_MESSAGE
               value: "Welcome to azcagit!"
             - name: PODINFO_UI_COLOR
-              value: red
+              value: blue
           probes:
             - httpGet:
                 path: /healthz
