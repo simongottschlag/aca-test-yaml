@@ -24,7 +24,7 @@ spec:
             - name: PODINFO_UI_MESSAGE
               value: "Welcome to azcagit!"
             - name: PODINFO_UI_COLOR
-              value: green
+              value: red
           probes:
             - httpGet:
                 path: /healthz
