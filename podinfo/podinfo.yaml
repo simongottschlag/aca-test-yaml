@@ -3,6 +3,9 @@ apiVersion: aca.xenit.io/v1alpha1
 metadata:
   name: podinfo
 spec:
+  remoteSecrets:
+    - appSecretName: edvin
+      remoteSecretName: edvins-farg
   app:
     properties:
       configuration:
@@ -24,7 +27,7 @@ spec:
             - name: PODINFO_UI_MESSAGE
               value: "Welcome to azcagit!"
             - name: PODINFO_UI_COLOR
-              value: red
+              secretRef: edvin
           probes:
             - httpGet:
                 path: /healthz
