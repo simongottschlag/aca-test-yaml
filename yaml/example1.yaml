@@ -1,5 +1,5 @@
 kind: AzureContainerApp
-apiVersion: aca.xenit.io/v1alpha1
+apiVersion: aca.xenit.io/v1alpha2
 metadata:
   name: foobar1337
 spec:
@@ -19,7 +19,7 @@ spec:
           maxReplicas: 1
 ---
 kind: AzureContainerApp
-apiVersion: aca.xenit.io/v1alpha1
+apiVersion: aca.xenit.io/v1alpha2
 metadata:
   name: foo2
 spec:

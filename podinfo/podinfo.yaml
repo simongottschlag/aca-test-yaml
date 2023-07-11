@@ -1,10 +1,10 @@
 kind: AzureContainerApp
-apiVersion: aca.xenit.io/v1alpha1
+apiVersion: aca.xenit.io/v1alpha2
 metadata:
   name: podinfo
 spec:
   remoteSecrets:
-    - appSecretName: edvin
+    - secretName: edvin
       remoteSecretName: edvins-farg
   app:
     properties:
