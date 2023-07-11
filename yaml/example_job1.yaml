@@ -1,0 +1,22 @@
+kind: AzureContainerJob
+apiVersion: aca.xenit.io/v1alpha2
+metadata:
+  name: example-job1
+spec:
+  job:
+    properties:
+      configuration:
+        scheduleTriggerConfig:
+          cronExpression: "*/5 * * * *"
+          parallelism: 1
+          replicaCompletionCount: 1
+        replicaRetryLimit: 1
+        replicaTimeout: 1800
+        triggerType: Schedule
+      template:
+        containers:
+          - name: simple-hello-world-container
+            image: mcr.microsoft.com/k8se/quickstart-jobs:latest
+            resources:
+              cpu: 0.25
+              memory: .5Gi
