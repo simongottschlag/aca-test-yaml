@@ -1,7 +1,7 @@
 kind: AzureContainerApp
 apiVersion: aca.xenit.io/v1alpha2
 metadata:
-  name: example-app2
+  name: example-app1
 spec:
   app:
     properties:
