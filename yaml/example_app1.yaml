@@ -3,6 +3,11 @@ apiVersion: aca.xenit.io/v1alpha2
 metadata:
   name: example-app1
 spec:
+  remoteSecrets:
+    - secretName: foo
+      remoteSecretName: foo
+    - secretName: bar
+      remoteSecretName: bar
   app:
     properties:
       configuration:
@@ -11,6 +16,11 @@ spec:
         containers:
           - name: simple-hello-world-container
             image: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+            env:
+              - name: FOO
+                secretRef: foo
+              - name: BAR
+                secretRef: bar
             resources:
               cpu: 0.25
               memory: .5Gi
