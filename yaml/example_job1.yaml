@@ -3,6 +3,11 @@ apiVersion: aca.xenit.io/v1alpha2
 metadata:
   name: example-job1
 spec:
+  remoteSecrets:
+    - secretName: foo
+      remoteSecretName: foo
+    - secretName: baz
+      remoteSecretName: baz
   job:
     properties:
       configuration:
@@ -17,6 +22,11 @@ spec:
         containers:
           - name: simple-hello-world-container
             image: mcr.microsoft.com/k8se/quickstart-jobs:latest
+            env:
+              - name: FOO
+                secretRef: foo
+              - name: BAZ
+                secretRef: baz
             resources:
               cpu: 0.25
               memory: .5Gi
